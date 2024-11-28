@@ -21,7 +21,6 @@ foreach (var item in post)
 }
 
 
-
 static async Task<List<Post>> GetPostAsync(HttpClient client)
 {   
 
