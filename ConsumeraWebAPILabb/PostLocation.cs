@@ -13,7 +13,8 @@ public class PostLocation
     public string post_code { get; set; }
 
     [JsonPropertyName("places")]
-    public List<Place> Places { get; set; }  // List of Place objects
+    public List<Place> Places { get; set; }  // Since the data within the api contained within an array we needed to use a nested class to gain accsess
+                                             // Sneaky Claes ;-)
 
     public override string ToString()
     {

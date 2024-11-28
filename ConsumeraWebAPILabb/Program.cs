@@ -35,7 +35,7 @@ static async Task<List<Post>> GetPostsAsync(HttpClient client)
     return result ?? new();
 }
 //-------------------------------------------------------------------------------------------------------------
-
+// Du va hella sneaky där ska ej ljuga, tog oss en liten stund....
 Console.ForegroundColor = ConsoleColor.Green;
 Console.WriteLine("Retrieve Post VG Part");
 Console.ResetColor();
