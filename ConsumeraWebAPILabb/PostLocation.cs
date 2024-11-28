@@ -9,20 +9,29 @@ using System.Threading.Tasks;
 
 public class PostLocation
 {
-    [property: JsonPropertyName("post code")]
-    public int post_code { get; set; }
+    [JsonPropertyName("post code")]
+    public string post_code { get; set; }
 
-    [property: JsonPropertyName("latitude")]
-    public double latitude { get; set; }
-
-    [property: JsonPropertyName("longitude")]
-    public double longitude { get; set; }
+    [JsonPropertyName("places")]
+    public List<Place> Places { get; set; }  // List of Place objects
 
     public override string ToString()
     {
-        return $"Post code: {this.post_code} \n Latitude: {this.latitude} \n Longitude: {this.longitude}";
+        if (Places != null && Places.Count > 0)
+        {
+            var place = Places[0];  // Get the first place from the list
+            return $"Post code: {this.post_code} \nLatitude: {place.Latitude} \nLongitude: {place.Longitude}";
+        }
+        return $"Post code: {this.post_code} \nNo places available";
     }
-
 }
 
+public class Place
+{
+    [JsonPropertyName("latitude")]
+    public string Latitude { get; set; }
+
+    [JsonPropertyName("longitude")]
+    public string Longitude { get; set; }
+}
 

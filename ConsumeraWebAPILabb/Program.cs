@@ -12,13 +12,13 @@ using HttpClient clientPost = new()
 };
 
 client.DefaultRequestHeaders.Add("User-Agent", "MyGitHubApp");
+//clientPost.DefaultRequestHeaders.Add("User-Agent", "MyGitHubApp");
 
 Console.ForegroundColor = ConsoleColor.Green;
 Console.WriteLine("Retrieve Post G Part");
 Console.ResetColor();
 
 var post = await GetPostsAsync(client);
-
 
 foreach (var item in post.Take(5))
 {
@@ -42,16 +42,14 @@ Console.ResetColor();
 
 var postLocation = await GetPostAsync(clientPost);
 
-foreach (var item in postLocation)
+ Console.WriteLine($"{postLocation}\n");
+
+static async Task<PostLocation> GetPostAsync(HttpClient clientPost)
 {
-    Console.WriteLine($"{item}\n");
-}
-static async Task<List<PostLocation>> GetPostAsync(HttpClient clientPost)
-{
-    
+
     await using Stream streamPost = await clientPost.GetStreamAsync("07645");
-    var resultPost = await JsonSerializer.DeserializeAsync<List<PostLocation>>(streamPost);
+    var resultPost = await JsonSerializer.DeserializeAsync<PostLocation>(streamPost);
 
     return resultPost ?? new();
-}
 
+}
