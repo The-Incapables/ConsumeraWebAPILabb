@@ -6,31 +6,29 @@ using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 
-
-
 public class Post
 {
     [property: JsonPropertyName("Name")]
-    public int Name { get; set; }
+    public string name { get; set; }
 
     [property: JsonPropertyName("Description")]
-    public int Description { get; set; }
+    public string description { get; set; }
 
     [property: JsonPropertyName("HTML_URL")]
-    public string HTML_URL { get; set; }
+    public string html_url { get; set; }
 
     [property: JsonPropertyName("Homepage")]
-    public string Homepage { get; set; }
+    public string homepage { get; set; }
 
     [property: JsonPropertyName("Watchers")]
-    public string Watchers { get; set; }
+    public string watchers { get; set; }
 
     [property: JsonPropertyName("Pushed_at")]
-    public string Pushed_at { get; set; }
+    public string pushed_at { get; set; }
     public override string ToString()
     {
-        return $"Post Name:{this.Name} \n Description:{this.Description}, \n HTML_URL:{this.HTML_URL}," +
-            $" \n Homepage:{this.Homepage},  \n Watchers:{this.Watchers},  \n Pushed_at:{this.Homepage}";
+        return $"Post Name:{this.name} \n Description:{this.description} \n HTML_URL:{this.html_url}" +
+            $" \n Homepage:{this.homepage}  \n Watchers:{this.watchers}  \n Pushed_at:{this.homepage}";
     }
 
 }
