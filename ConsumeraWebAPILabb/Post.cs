@@ -20,7 +20,7 @@ public class Post
 
     [property: JsonPropertyName("homepage")]
     public string homepage { get; set; }
-
+    
     [property: JsonPropertyName("watchers")]
     public int watchers { get; set; }
 
@@ -29,9 +29,9 @@ public class Post
     public DateTime pushed_at { get; set; }
     public override string ToString()
     {
-        return $"Post Name: {this.name} \n Description: {this.description} \n HTML_URL: {this.html_url}" +
+        return $"Name: {this.name} \n Description: {this.description} \n HTML_URL: {this.html_url}" +
             $" \n Homepage: {this.homepage}  \n Watchers: {this.watchers}  \n Pushed_at: {this.pushed_at}";
     }
- }
+}
 
 
